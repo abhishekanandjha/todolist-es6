@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToDoItem from "./ToDoItem";
 
 //const list = ["jha", "this", "check"];
 //console.log(list);
@@ -32,9 +33,9 @@ function App() {
       </div>
       <div>
         <ul>
-          <li>A Item</li>
+          <li style={{ textDecoration: "lineThrough" }}>A Item</li>
           {items.map((todoitem) => (
-            <li>{todoitem}</li>
+            <ToDoItem text={todoitem} />
           ))}
         </ul>
       </div>
