@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 function ToDoItem(props) {
-  const [cut, setcut] = useState(false);
-  function strike() {
-    setcut((prevCheck) => !prevCheck);
-    console.log("clicked");
-  }
-
   return (
     <li
-      style={{ textDecoration: cut ? "line-through" : "none" }}
-      onClick={strike}
+      onClick={() => {
+        props.onChecked(props.id);
+      }}
     >
       {props.text}
     </li>

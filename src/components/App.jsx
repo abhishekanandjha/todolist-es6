@@ -20,6 +20,14 @@ function App() {
     setinputtext("");
   }
 
+  function deleteItem(id) {
+    setitems((previtems) => {
+      return previtems.filter((items, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -33,9 +41,13 @@ function App() {
       </div>
       <div>
         <ul>
-          <li style={{ textDecoration: "lineThrough" }}>A Item</li>
-          {items.map((todoitem) => (
-            <ToDoItem text={todoitem} />
+          {items.map((todoitem, index) => (
+            <ToDoItem
+              key={index}
+              id={index}
+              onChecked={deleteItem}
+              text={todoitem}
+            />
           ))}
         </ul>
       </div>
